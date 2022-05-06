@@ -27,7 +27,8 @@ def main():
 
     with open("keys.txt") as f:
         keys = [int(a,16) for a in f.read().splitlines()]
-        
+    f.close()
+
     print("Keys: " + str([hex(key)[2:].upper()for key in keys]))
     print("Plaintext: {} {}".format(output(L),output(R)))
 

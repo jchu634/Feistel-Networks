@@ -24,7 +24,8 @@ def main():
 
     with open("keys.txt") as f:
         keys = [int(a,16) for a in f.read().splitlines()][::-1]
-        
+    f.close()
+
     print("Keys: " + str([hex(key)[2:].upper()for key in keys]))
     print("Ciphertext: {} {}".format(output(L),output(R)))
 
@@ -34,7 +35,7 @@ def main():
         # print("\nRound {}: {} {}".format(i+1,FeistelFunction(R,key).upper(),output(L)))
 
         print("Round {}: {} {}".format(i+1,output(L),output(R)))
-    print("Ciphertext: {} {}".format(output(R),output(L)))
+    print("Ciphertext: {} {}".format(output(L),output(R)))
 
 
 if __name__ == '__main__':
