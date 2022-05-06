@@ -2,6 +2,7 @@ def output(cipherText):
     return hex(cipherText)[2:].upper()
 
 def FeistelFunction(plainText,key):
+    return hex((plainText+key)%65536)[2:]
     keyArr = [int(a,16) for a in hex(key)[2:]]
     cipherText = ''
 
@@ -33,6 +34,8 @@ def main():
         # print("\nRound {}: {} {}".format(i+1,FeistelFunction(R,key).upper(),output(L)))
 
         print("Round {}: {} {}".format(i+1,output(L),output(R)))
+    print("Ciphertext: {} {}".format(output(R),output(L)))
+
 
 if __name__ == '__main__':
     main()
